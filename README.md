@@ -6,7 +6,10 @@ sh build-docker.sh
 
 # Generate data
 
-docker run --name golang -d tsbs:0.1
+You can generate the data with the following command for scale 100
+```sh
+sh generate-data 100
+```
 
 
 
@@ -50,6 +53,7 @@ docker run --rm -p 8086:8086 \
       -e DOCKER_INFLUXDB_INIT_PASSWORD=gabrielmelapela \
       -e DOCKER_INFLUXDB_INIT_ORG=ulb \
       -e DOCKER_INFLUXDB_INIT_BUCKET=benchmark \
+      --name influxdb \
       influxdb:2.7
 ```
 
@@ -67,3 +71,14 @@ docker run --rm -p 8086:8086 \
 docker build -t tsbs:0.1 .
 
 docker run --name golang -d tsbs:0.1
+
+
+docker exec benchmark-golang-1 ./tsbs_load_influx --db-name=benchmark --file=./data/influx_data.txt --urls=http://localhost:8086 --auth-token="lGeJ4LLYpUj6pSFSHF8ICWDgLR7Ut8KptNtsPKcN9HeCTroszL9YH4tr3YpgA3PiKTQvivxrWlkmv2K7oq_FXQ==" --workers=10
+
+
+docker cp data benchmark-golang-1:/
+docker exec benchmark-golang-1 ./tsbs_load_questdb --file=/data/questdb_data.txt --ilp-bind-to=localhost:9009 --workers=5
+
+
+
+./tsbs_load_questdb --file=./../../data/questdb_data.txt --ilp-bind-to=localhost:9009 --workers=5
