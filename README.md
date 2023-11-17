@@ -1,3 +1,16 @@
+# Build the dockers
+You can the docker in mac and linux with 
+```sh
+sh build-docker.sh
+```
+
+# Generate data
+
+docker run --name golang -d tsbs:0.1
+
+
+
+
 # Run docker for questDB
 ```
 docker run -p 9000:9000  \
