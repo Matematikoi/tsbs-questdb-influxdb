@@ -77,7 +77,7 @@ docker exec benchmark-golang-1 ./tsbs_load_influx --db-name=benchmark --file=./d
 
 
 docker cp data benchmark-golang-1:/
-docker exec benchmark-golang-1 ./tsbs_load_questdb --file=/data/questdb_data.txt --ilp-bind-to=localhost:9009 --workers=5
+docker exec benchmark-golang-1 ./tsbs_load_questdb --file=/data/questdb_data.txt --ilp-bind-to=questdb:9009 --workers=5
 
 
 
