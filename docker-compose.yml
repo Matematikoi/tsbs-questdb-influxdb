@@ -1,0 +1,20 @@
+version: "3.7"
+services:
+  influxdb:
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=gabriel
+      - DOCKER_INFLUXDB_INIT_PASSWORD=estaesunamalacontrasena
+      - DOCKER_INFLUXDB_INIT_ORG=ulb
+      - DOCKER_INFLUXDB_INIT_BUCKET=benchmark
+    image: influxdb:2.7
+    ports:
+      - 8086:8086
+  golang:
+    image: tsbs:0.1
+  questdb:
+    image: questdb/questdb
+    ports:
+      - 8812:8812
+      - 9009:9009
+      - 9000:9000
