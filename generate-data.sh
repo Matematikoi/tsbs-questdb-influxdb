@@ -11,7 +11,7 @@ docker exec golang ./tsbs_generate_data --use-case=$2 --seed=123 --scale=$1 --ti
 echo GENERATING INFLUXDB DATA
 docker exec golang ./tsbs_generate_data --use-case=$2 --seed=123 --scale=$1 --timestamp-start="2023-11-01T00:00:00Z" --timestamp-end="2023-11-15T00:00:00Z" --log-interval="10s" --format="influx"  > ./data/influxdb_data.txt
 echo GENERATING TIMESCALE DATA 
-docker exec golang ./tsbs_generate_data --use-case=cpu-only --seed=123 --scale=10 --timestamp-start="2023-11-01T00:00:00Z" --timestamp-end="2023-11-15T00:00:00Z" --log-interval="10s" --format="timescaledb"  > ./data/timescale_data.txt
+docker exec golang ./tsbs_generate_data --use-case=$2 --seed=123 --scale=$1 --timestamp-start="2023-11-01T00:00:00Z" --timestamp-end="2023-11-15T00:00:00Z" --log-interval="10s" --format="timescaledb"  > ./data/timescale_data.txt
 
 
 

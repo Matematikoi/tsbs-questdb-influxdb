@@ -35,7 +35,7 @@ done
 
 docker compose down
 docker compose up -d
-sleep 3
+sleep 8
 
 echo LOADING DATA TO TIMESCALE
 docker exec golang ./tsbs_load_timescaledb --port=5432 --host=timescaledb --file=/data/timescale_data.txt --pass=estaesunamalacontrasena --workers=5 > results/loading_times_timescale_$1_$2.txt
