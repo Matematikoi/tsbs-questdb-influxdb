@@ -4,11 +4,11 @@ docker compose up -d
 sleep 3
 
 echo GENERATING QUESTDB DATA
-docker exec golang ./tsbs_generate_data --use-case=cpu-only --seed=123 --scale=$1 --timestamp-start="2023-11-01T00:00:00Z" --timestamp-end="2023-11-15T00:00:00Z" --log-interval="10s" --format="questdb"  > ./data/questdb_data.txt
+docker exec golang ./tsbs_generate_data --use-case=devops --seed=123 --scale=$1 --timestamp-start="2023-11-01T00:00:00Z" --timestamp-end="2023-11-15T00:00:00Z" --log-interval="10s" --format="questdb"  > ./data/questdb_data.txt
 echo GENERATING INFLUXDB DATA
-docker exec golang ./tsbs_generate_data --use-case=cpu-only --seed=123 --scale=$1 --timestamp-start="2023-11-01T00:00:00Z" --timestamp-end="2023-11-15T00:00:00Z" --log-interval="10s" --format="influx"  > ./data/influxdb_data.txt
+docker exec golang ./tsbs_generate_data --use-case=devops --seed=123 --scale=$1 --timestamp-start="2023-11-01T00:00:00Z" --timestamp-end="2023-11-15T00:00:00Z" --log-interval="10s" --format="influx"  > ./data/influxdb_data.txt
 echo GENERATING POSTGRES DATA 
-docker exec golang ./tsbs_generate_data --use-case=cpu-only --seed=123 --scale=10 --timestamp-start="2023-11-01T00:00:00Z" --timestamp-end="2023-11-15T00:00:00Z" --log-interval="10s" --format="timescaledb"  > ./data/postgres_data.txt
+docker exec golang ./tsbs_generate_data --use-case=devops --seed=123 --scale=10 --timestamp-start="2023-11-01T00:00:00Z" --timestamp-end="2023-11-15T00:00:00Z" --log-interval="10s" --format="timescaledb"  > ./data/postgres_data.txt
 
 docker cp data golang:/
 
