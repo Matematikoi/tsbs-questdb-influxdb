@@ -1,6 +1,7 @@
 version: "3.7"
 services:
   influxdb:
+    build: influx-docker
     environment:
       - DOCKER_INFLUXDB_INIT_MODE=setup
       - DOCKER_INFLUXDB_INIT_USERNAME=gabriel
@@ -11,7 +12,19 @@ services:
     ports:
       - 8086:8086
   golang:
+    container_name: golang
+    build: tsbs-master
     image: tsbs:0.1
+    volumes:
+     - ./data/:/data/
+  timescaledb:
+    image: timescale/timescaledb:latest-pg16
+    environment:
+     - POSTGRES_PASSWORD=estaesunamalacontrasena
+     - POSTGRES_DB=postgres
+     - POSTGRES_USER=postgres
+    ports:
+      - 5432:5432 
   questdb:
     image: questdb/questdb
     ports:
