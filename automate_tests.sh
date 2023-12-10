@@ -1,7 +1,7 @@
 #!/bin/sh
 
 declare -a useCases=("devops")
-declare -a scales=("10")
+declare -a scales=("10" "20")
 
 for useCase in "${useCases[@]}"
 do
