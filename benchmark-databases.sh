@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bash/sh
 
 # $1 is the scale, an int
 # $2 is the use case cpu-only devops iot
