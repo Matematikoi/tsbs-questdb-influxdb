@@ -1,12 +1,16 @@
+# Requirements
+
+You should have docker and docker-compose installed in your PC. Docker should not ask for sudo permissions to run i.e. you can run `docker ps` without sudo. The following instructions are for MAC and Linux. Windows is not supported.
+
 # Run the test
 Make sure that you run 
 ```
-docker compose up -d
+docker-compose up -d
 ```
 and that you are running 4 services, you can check this with `docker ps`, 4 results should appear. 
 Then run 
 ```
-docker compose down
+docker-compose down
 ```
 to start with the testing then run 
 

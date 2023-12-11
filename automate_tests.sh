@@ -8,9 +8,9 @@ do
 for scale in "${scales[@]}"
 do
     echo RUNNING FOR $useCase $scale
-    docker compose up -d
+    docker-compose up -d
     bash generate-data.sh $scale $useCase
     bash benchmark-databases.sh $scale $useCase
-    docker compose down
+    docker-compose down
 done
 done
