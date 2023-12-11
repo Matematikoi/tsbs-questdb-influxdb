@@ -1,5 +1,7 @@
-docker compose down
-docker compose up -d
+#!/bash/sh
+
+docker-compose down
+docker-compose up -d
 
 sleep 3
 

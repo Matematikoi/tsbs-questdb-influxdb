@@ -1,11 +1,11 @@
-#!/bin/sh
+#!/bash/sh
 
 # $1 is the scale, an int
 # $2 is the use case cpu-only devops iot
 
 declare -a query_types=("groupby-orderby-limit" "high-cpu-1" "single-groupby-1-8-1" "single-groupby-5-1-12" "cpu-max-all-1" "double-groupby-all" "single-groupby-5-8-1""high-cpu-all" "cpu-max-all-8" "double-groupby-1" "double-groupby-5" "lastpoint" "single-groupby-1-1-1" "single-groupby-1-1-12" "single-groupby-5-1-1")
-docker compose down
-docker compose up -d
+docker-compose down
+docker-compose up -d
 sleep 3
 
 
@@ -19,8 +19,8 @@ do
 done
 
 
-docker compose down
-docker compose up -d
+docker-compose down
+docker-compose up -d
 sleep 3
 
 
@@ -33,8 +33,8 @@ do
 done
 
 
-docker compose down
-docker compose up -d
+docker-compose down
+docker-compose up -d
 sleep 8
 
 echo LOADING DATA TO TIMESCALE
